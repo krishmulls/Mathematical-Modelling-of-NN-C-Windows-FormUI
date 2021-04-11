@@ -1,0 +1,227 @@
+@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix process: <urn:process:>.
+@prefix input: <urn:input:>.
+@prefix output: <urn:output:>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+
+process:a1	rdfs:subClassOf    "Toplayerview of AMPBB";
+			rdfs:comment	"urn:process:a1";
+            rdf:label    "Reaching Web Service";
+            rdfs:Properties    input:usercoordinates;
+            rdfs:Properties    output:callavailabilityCheck;
+			rdf:Resource    input:null;
+			owl:oneOf    ("sprint:1");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.    
+            
+process:a2    rdfs:subClassOf    "Toplayerview of AMPBB";
+			rdfs:comment	"urn:process:a2";
+            rdf:label    "Starting Availabitlity Check";
+            rdfs:Properties    input:callavailabilityCheck;
+            rdfs:Properties    output:searchingnearbybots;
+            rdf:Resource    input:userrequirement;
+			owl:oneOf ("sprint:1");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+            
+process:a21    rdfs:subClassOf    "Starting Availabitlity Check";
+			rdfs:comment	"urn:process:a21";
+            rdf:label    "User Requirement Check";
+            rdfs:Properties    input:callavailabilityCheck;
+            rdfs:Properties    output:internalprogramcall;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:1");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a22    rdfs:subClassOf    "Starting Availabitlity Check";
+			rdfs:comment	"urn:process:a22";
+            rdf:label    "Existing User Feedback";
+            rdfs:Properties    input:internalprogramcall;
+            rdfs:Properties    output:inspectioncall;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:1");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a23    rdfs:subClassOf    "Starting Availabitlity Check";
+			rdfs:comment	"urn:process:a23";
+            rdf:label    "Bot Health Check";
+            rdfs:Properties    input:inspectioncall;
+            rdfs:Properties    output:searchingnearbybots;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:1");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a231    rdfs:subClassOf    "Bot Health Check";
+			rdfs:comment	"urn:process:a231";
+            rdf:label    "Vehicle History Check Initiating";
+            rdfs:Properties    input:inspectioncall;
+            rdfs:Properties    output:manualinspection;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:1");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a232    rdfs:subClassOf    "Bot Health Check";
+			rdfs:comment	"urn:process:a232";
+            rdf:label    "Physical Damage Check";
+            rdfs:Properties    input:manualinspection;
+            rdfs:Properties    output:signalpulse;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:1");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a233    rdfs:subClassOf    "Bot Health Check";
+			rdfs:comment	"urn:process:a233";
+            rdf:label    "Scanning Hardware and performance Tuning";
+            rdfs:Properties    input:signalpulse;
+            rdfs:Properties    output:internalcall;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:1");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+
+            
+process:a3    rdfs:subClassOf    "Toplayerview of AMPBB";
+			rdfs:comment	"urn:process:a3";
+            rdf:label    "Initiating Request To Bot";
+            rdfs:Properties    input:internalbotscall;
+            rdfs:Properties    output:botuniqueid;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:2");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+            
+process:a4    rdfs:subClassOf    "Toplayerview of AMPBB";
+			rdfs:comment	"urn:process:a4";
+            rdf:label    "Navigation";
+            rdfs:Properties    input:botuniqueidIIIbotcoordinateIIIusercoordinate;
+            rdfs:Properties    output:intransitbotcoordinates;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:2");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a41    rdfs:subClassOf    "Navigation";
+			rdfs:comment	"urn:process:a41";
+            rdf:label    "Route Generation";
+            rdfs:Properties    input:statbotcoordinatesIIIbotuniqueidIIIusercoordniates; 
+            rdfs:Properties    output:restapisyncviagps;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:2");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a42    rdfs:subClassOf    "Navigation";
+			rdfs:comment	"urn:process:a42";
+            rdf:label    "Shortest Path Calculation";
+            rdfs:Properties    input:restapisyncviagps;
+            rdfs:Properties    output:directionnavigation;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:2");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.            
+
+process:a43    rdfs:subClassOf    "Navigation";
+			rdfs:comment	"urn:process:a43";
+            rdf:label    "Vehicle In-Transit";
+            rdfs:Properties    input:directionnavigation;
+            rdfs:Properties    output:intransitbotcoordinates;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:2");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.    
+
+process:a421    rdfs:subClassOf    "Shortest Path Calculation";
+			rdfs:comment	"urn:process:a421";
+            rdf:label    "Google Map Api Tool";
+            rdfs:Properties    input:restapisyncviagps;
+            rdfs:Properties    output:routeanddistance;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:2");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a422    rdfs:subClassOf    "Shortest Path Calculation";
+			rdfs:comment	"urn:process:a422";
+            rdf:label    "Controlling Motorspeed";
+            rdfs:Properties    input:routeanddistance;
+            rdfs:Properties    output:controlledbotspeed;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:2");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a423    rdfs:subClassOf    "Shortest Path Calculation";
+			rdfs:comment	"urn:process:a423";
+            rdf:label    "Google Direction Api Tool";
+            rdfs:Properties    input:controlledbotspeed;
+            rdfs:Properties    output:directionnavigation;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:2");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a5    rdfs:subClassOf    "Toplayerview of AMPBB";
+			rdfs:comment	"urn:process:a5";
+            rdf:label    "Multi-Object Detection";
+            rdfs:Properties    input:intransitbotcoordinatesIIIbotspeedIIIsensoryinput;
+            rdfs:Properties    output:trajectoryplannedandfinalcoordinatesofuserandbot;
+            rdf:Resource    input:ann;
+			owl:oneOf ("sprint:3");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a51    rdfs:subClassOf    "Multi-Object Detection";
+			rdfs:comment	"urn:process:a51";
+            rdf:label    "Detecting Obstacle";
+            rdfs:Properties    input:sensoryinput;
+            rdfs:Properties    output:decidedobstacleoutput;
+            rdf:Resource    input:ann;
+			owl:oneOf ("sprint:3");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a511    rdfs:subClassOf    "Detecting Obstacle";
+			rdfs:comment	"urn:process:a511";
+            rdf:label    "Trained CNN for Obstacle Detection";
+            rdfs:Properties    input:sensorinput;
+            rdfs:Properties    output:detectedoutput;
+            rdf:Resource    input:ann;
+			owl:oneOf ("sprint:3");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a512    rdfs:subClassOf    "Detecting Obstacle";
+			rdfs:comment	"urn:process:a512";
+            rdf:label    "CMAS Probability Decision";
+            rdfs:Properties    input:detectedoutput;
+            rdfs:Properties    output:decidedgeneralizedoutput;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:3");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a52    rdfs:subClassOf    "Multi-Object Detection";
+			rdfs:comment	"urn:process:a52";
+            rdf:label    "Detecting Traffic Signs";
+            rdfs:Properties    input:sensoryinputIIIintransitbotcoordinates;
+            rdfs:Properties    output:decidedtrafficoutput;
+            rdf:Resource    input:ann;
+			owl:oneOf ("sprint:3");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a521    rdfs:subClassOf    "Detecting Traffic Signs";
+			rdfs:comment	"urn:process:a521";
+            rdf:label    "Trained CNN for Traffic Detection";
+            rdfs:Properties    input:sensorinputIIIbotcoordinates;
+            rdfs:Properties    output:detectedoutput;
+            rdf:Resource    input:ann;
+			owl:oneOf ("sprint:3");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+
+process:a522    rdfs:subClassOf    "Detecting Traffic Signs";
+			rdfs:comment	"urn:process:a522";
+            rdf:label    "CMAS Probability Decision2";
+            rdfs:Properties    input:detectedoutput;
+            rdfs:Properties    output:decidedtrafficsign;
+			rdf:Resource    input:null;
+			owl:oneOf ("sprint:3");
+            rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+			
+process:a0 rdfs:subClassOf process:AMPBB;
+			rdfs:comment	"urn:process:a0";
+			rdf:label	"Toplayerview of AMPBB";
+			rdfs:Properties    input:UserCoordinateIIIBotCoordianteIIIBotspeedIIISensorInput ;
+            rdfs:Properties    output:TrajectoryPlannedIIIFinalCoordinates;
+			rdf:Resource    input:ANNIIIUserreuirement;
+			owl:oneOf ("sprint:1" "sprint:2" "sprint:3");
+			rdfs:seeAlso    <https://dev.azure.com/AMPBB/AMPBB/_git/AMPBB?path=%2FArchitecture>.
+			
+			
