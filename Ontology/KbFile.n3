@@ -1,0 +1,20 @@
+@prefix ind:<URN:inds:>.
+@prefix prop:<URN:prop:>.
+@prefix cl:<URN:class:>.
+@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>.
+
+ind:process1	rdf:type	cl:Process;
+				prop:includes	ind:process1-1;
+				prop:label	"Process 1";
+				prop:inPar	ind:Temp01,	ind:Press01;
+				prop:outPar	ind:relCoord;
+				prop:includes	ind:process1-2.
+
+ind:process1	rdf:type	cl:Process;
+				prop:includes	ind:process1-2-1;
+				rdf:label	"Process 1-2".
+
+
+
+
